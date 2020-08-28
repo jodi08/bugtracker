@@ -16,6 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from bugtrackerapp import views
+
 urlpatterns = [
+    path('', views.index_view, name="homepage"),
+    path('login/', views.login_view, name="login"),
+    path('ticket/', views.ticket_view, name="ticket"),
+    path('logout/', views.logout_view, name="logout"),
+    path('tdetails/<int:ticket_id>/', views.ticket_detail, name="ticket_details"),
     path('admin/', admin.site.urls),
 ]
