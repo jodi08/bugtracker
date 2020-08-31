@@ -23,6 +23,11 @@ urlpatterns = [
     path('login/', views.login_view, name="login"),
     path('ticket/', views.ticket_view, name="ticket"),
     path('logout/', views.logout_view, name="logout"),
-    path('tdetails/<int:ticket_id>/', views.ticket_detail, name="ticket_details"),
+    path('tdetails/<int:ticket_id>/', views.ticket_detail, name="tdetails"),
+    path('userdetails/<int:user_id>/', views.user_detail, name="userdetails"),
+    path('edit_ticket/<int:post_id>/', views.ticket_edit_view),
+    path('invalid/<int:post_id>/', views.invalid_view),
+    path('inprogress/<int:post_id>/', views.inprogress_view),
+    path('complete/<int:post_id>/', views.completed_view),
     path('admin/', admin.site.urls),
 ]

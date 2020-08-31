@@ -6,17 +6,22 @@
 
     {% else %}
 
-        <h2>{{ ticket.title }}</h2>
-        <p>{{ ticket.date }}</p>
-        <p>{{ ticket.description</p>
-        <p>{{ ticket.author</p>
-        <p>{{ ticket.status</p>
-        <p>{{ ticket.assigned_to</p>
-        <p>{{ ticket.assigned_to</p>
-        <p>{{ ticket.completed</p>
+        <h2>Ticket Details: </h2>
+        <p>Title: {{ ticket.title }}</p>
+        <p>Ticket id: {{ticket.id }}</p>
+        <p>Creation Date: {{ ticket.time_date }}</p>
+        <p>Description of error: {{ ticket.description }}</p>
+        <p>Ticket filed by: {{ticket.author}}</p>
+        <p>Current status: {{ ticket.status }}</p>
+        <p>Assigned to: {{ ticket.assigned_to }}</p>
+        <p>Ticket completed by: {{ ticket.completed }}</p>
 
       
 
     {% endif %}
+    <a role="button" class="btn btn-danger btn-sm" href="/edit_ticket/{{ticket.id}}/">Edit Ticket</a>
+    <a class="btn btn-primary btn-sm" href="/">Back to Main Page</a>
+      
 
-</div>
+  </form>
+  </div>

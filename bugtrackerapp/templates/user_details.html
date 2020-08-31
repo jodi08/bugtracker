@@ -1,0 +1,54 @@
+<h1>Filed Tickets</h1>
+        {% for ticket in filed_tickets %}
+        <ul>
+            
+            <li style="list-style: none;">
+                <a href="/tdetails/{{ post.id }}/">{{ ticket.title }}</a></li>
+                <p>Current status: {{ticket.status}}</p>
+                <p>Assigned to: {{ticket.assigned_to}}</p>
+                <p>Completed by: {{ticket.completed}}</p>
+                
+            </li>
+            <br>
+            <hr>
+            </ul>
+
+            
+        {% endfor %}
+
+
+<h1>Assigned Tickets</h1>
+{% for ticket in assigned_tickets %}
+        <ul>
+            
+            <li style="list-style: none;">
+                <a href="/tdetails/{{ post.id }}/">{{ ticket.title }}</a></li>
+                <p>Current status: {{ticket.status}}</p>
+                <p>Assigned to: {{ticket.assigned_to}}</p>
+                <p>Completed by: {{ticket.completed}}</p>
+                
+            </li>
+            <br>
+            <hr>
+            </ul>
+
+            
+        {% endfor %}
+        
+        <h1>Completed Tickets</h1>
+        {% for ticket in completed_tickets %}
+        <ul>
+            
+            <li style="list-style: none;">
+                <a href="/tdetails/{{ post.id }}/">{{ ticket.title }}</a></li>
+                <p>Current status: {{ticket.status}}</p>
+                <p>Assigned to: {{ticket.assigned_to}}</p>
+                <p>Completed by: {{ticket.completed}}</p>
+                
+            </li>
+            <br>
+            <hr>
+            </ul>
+
+            
+        {% endfor %}

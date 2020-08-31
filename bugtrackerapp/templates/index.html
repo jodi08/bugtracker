@@ -1,52 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Bug Tracker</title>
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Bug Tracker</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/login/">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/tdetails/">Ticket Details</a>
-                <li class="nav-item">
-                  <a class="btn btn-primary btn-small" href="/ticket/">Submit Ticket</a>
-                </li>
-                <li class="nav-item">
-                  <a class="btn btn-danger btn-small" href='/logout/'>Logout</a>
-                </li>
-            </li>
-          </ul>
-        </div>
-      </nav>
+
+
+
+    {% include 'navbar.html' %}
+
       <h1 class="welcome">Welcome to Bug Tracker</h1>
       <hr>
-      <ul>
-        {% for post in Ticket %}
+      <h1>New Tickets</h1>
+      <a href="/userdetails/{{user.id}}">User Details</a>
+        {% for post in ticket %}
+        <ul>
             
-            <li>
-                <a href="/ticket/{{ post.id }}/">{{post.title }}</a></li>
+            <li style="list-style: none;">
+                <a href="/tdetails/{{ post.id }}/">{{ post.title }}</a>
+                <p>{{post.author}}</p>
+                <p>Current status: {{post.status}}</p>
+                <p>Assigned to: {{post.assigned_to}}</p>
+                <p>Completed by: {{post.completed}}</p>
                 
             </li>
             <br>
             <hr>
+            </ul>
+
+            
+        {% endfor %}
+      <h1>In Progress Tickets</h1>
+        {% for post in inpr_ticket %}
+           <ul> 
+            <li style="list-style: none;">
+                <a href="/tdetails/{{ post.id }}/">{{ post.title }}</a></li>
+                <p>Current status: {{post.status}}</p>
+                <p>Assigned to: {{post.assigned_to}}</p>
+                <p>Completed by: {{post.completed}}</p>
+                
+            </li>
+            <br>
+            <hr>
+            </ul>
+
+            
+        {% endfor %}
+      <h1>Completed Tickets</h1>
+        {% for post in completed_ticket %}
+          <ul>  
+            <li style="list-style: none;">
+                <a href="/tdetails/{{ post.id }}/">{{ post.title }}</a></li>
+                <p>Current status: {{post.status}}</p>
+                <p>Assigned to: {{post.assigned_to}}</p>
+                <p>Completed by: {{post.completed}}</p>
+                
+            </li>
+            <br>
+            <hr>
+            </ul>
+
+            
+        {% endfor %}
+      <h1>Invalid Tickets</h1>
+        {% for post in invalid_ticket %}
+        <ul>
+            
+            <li style="list-style: none;">
+                <a href="/tdetails/{{ post.id }}/">{{ post.title }}</a></li>
+                <p>Current status: {{post.status}}</p>
+                <p>Assigned to: {{post.assigned_to}}</p>
+                <p>Completed by: {{post.completed}}</p>
+                
+            </li>
+            <br>
+            <hr>
+            </ul>
 
             
         {% endfor %}
 
+      
+
+  
+
     
-</body>
-</html>
